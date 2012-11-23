@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/nddrylliog/deadlogger.png?branch=master)](https://travis-ci.org/nddrylliog/deadlogger)
+
 ## deadlogger
 
 deadlogger is a dead-simple logging system for ooc.
