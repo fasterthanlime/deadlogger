@@ -71,23 +71,48 @@ Logger: class {
         log(level, this, msg)
     }
 
+    log: func ~var (level: Int, msg: String, args: ...) {
+        log(level, this, msg format(args))
+    }
+
     debug: func (msg: String) {
         log(Level debug, msg)
+    }
+
+    debug: func ~var (msg: String, args: ...) {
+        log(Level debug, msg format(args))
     }
 
     info: func (msg: String) {
         log(Level info, msg)
     }
 
+    info: func ~var (msg: String, args: ...) {
+        log(Level info, msg format(args))
+    }
+
     warn: func (msg: String) {
         log(Level warn, msg)
+    }
+
+    warn: func ~var (msg: String, args: ...) {
+        log(Level warn, msg format(args))
     }
 
     error: func (msg: String) {
         log(Level error, msg)
     }
 
+    error: func ~var (msg: String, args: ...) {
+        log(Level error, msg format(args))
+    }
+
     critical: func (msg: String) {
         log(Level critical, msg)
     }
+
+    critical: func ~var (msg: String, args: ...) {
+        log(Level critical, msg format(args))
+    }
+
 }
