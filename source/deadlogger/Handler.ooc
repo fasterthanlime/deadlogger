@@ -1,4 +1,4 @@
-import deadlogger/[Formatter, Filter, Logger, Level]
+import deadlogger/[Formatter, Filter, Logger, Level, Internals]
 
 Handler: abstract class {
     handle: abstract func (logger: Logger, level: Int, emitter: Logger, msg: String) -> Bool
@@ -30,6 +30,7 @@ ExtendedHandler: abstract class extends Handler {
     send: abstract func (logger: Logger, level: Int, emitter: Logger, msg, formatted: String)
 
     handle: func (logger: Logger, level: Int, emitter: Logger, msg: String) -> Bool {
+        //internalLog("For logger %s, got message of level %d with content %s", logger path, level, msg)
         if(level < this level) {
             return false
         }
