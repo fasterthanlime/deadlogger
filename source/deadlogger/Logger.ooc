@@ -1,7 +1,7 @@
 import structs/[ArrayList,HashMap]
 import text/StringTokenizer
 
-import deadlogger/[Level, Handler]
+import deadlogger/[Level, Handler, Internals]
 
 NoSuchLoggerError: class extends Exception {
     init: func ~withMsg (.message) {
@@ -16,6 +16,7 @@ Logger: class {
     parent: Logger
 
     init: func ~withParent (=path, =parent) {
+        internalLog("Creating Logger with path %s, parent %p", path, parent)
         subloggers = HashMap<String, Logger> new()
         handlers = ArrayList<Handler> new()
     }
@@ -31,6 +32,9 @@ Logger: class {
             rest := path substring(idx + 1, path length())
             return getSubLogger(first) getSubLogger(rest)
         } else {
+            internalLog("Logger_getSubLogger(%s), subloggers address/size = %p / %d", path,
+                subloggers, subloggers size)
+
             if(!subloggers contains?(path)) {
                 if(!create) {
                     NoSuchLoggerError new(This, "No such logger: '%s'" format(path)) throw()
