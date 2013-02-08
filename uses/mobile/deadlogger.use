@@ -1,3 +1,6 @@
 Name: deadlogger
 Description: A dead (-simple) logging package for ooc
 SourcePath: source
+
+# That's Android stuff, get off my turf
+Libs: -llog
