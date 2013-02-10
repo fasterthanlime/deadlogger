@@ -21,8 +21,4 @@ internalLog: func (fmt: String, args: ...) {
         // Oh yeah, android, we have to do something special for you. Just for you.
         __android_log_print(ANDROID_LOG_INFO, "deadlogger", result toCString())
     }
-
-    version (!android) {
-        "I/deadlogger: %s" printfln(result)
-    }
 }
