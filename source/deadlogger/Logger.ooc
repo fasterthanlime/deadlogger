@@ -7,6 +7,9 @@ NoSuchLoggerError: class extends Exception {
     init: func ~withMsg (.message) {
         super(message)
     }
+    init: func ~withOrigin (origin: Class, .message) {
+        super(origin, message)
+    }
 }
 
 Logger: class {
