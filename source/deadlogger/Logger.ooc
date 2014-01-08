@@ -54,6 +54,10 @@ Logger: class {
         handlers add(handler)
     }
 
+    detachHandler: func (handler: Handler) {
+        handlers remove(handler)
+    }
+
     getSubLogger: func ~alwaysCreate (path: String) -> Logger {
         getSubLogger(path, true)
     }
